@@ -1,2 +1,2 @@
-# misc_stuff
-Collection of useful code examples and Jupyter notebooks
+# Misc. Stuff
+Collection of useful code examples and Jupyter notebooks.
