@@ -31,8 +31,9 @@ tmp/*
 *.class
 *.so
 
-# Resources, e.g. notes and sample sample_data. #
+# Resources, e.g. notes and large data files. #
 #############
+big_data/*
 local_resources/*
 logs/*
 venv/*
