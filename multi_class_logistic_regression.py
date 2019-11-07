@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import RidgeClassifier
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
@@ -14,10 +15,11 @@ class MulticlassLogisticRegressionDemo:
     """
 
     @staticmethod
-    def make_prediction(data):
+    def make_prediction(data, use_ridge=False):
         """Train a linear regression model and evaluate is quality.
 
         :param data: tuple - a tuple containing the data and the targets.
+        :param use_ridge: boolean - use Ridge regularization.
         :return:
         """
         pass
@@ -30,7 +32,10 @@ class MulticlassLogisticRegressionDemo:
         X_train, X_test, y_train, y_test = train_test_split(X, y, shuffle=True)
 
         # Create the model
-        logistic_reg = LogisticRegression(solver='lbfgs', multi_class="ovr")
+        if use_ridge:
+            logistic_reg = RidgeClassifier()
+        else:
+            logistic_reg = LogisticRegression(solver='lbfgs', multi_class="ovr")
 
         # Fit the model on the training set
         logistic_reg.fit(X_train, y_train)
@@ -53,5 +58,10 @@ if __name__ == "__main__":
     # constrain the output to be a tuple containing only the data and the targets.
     sample_data = datasets.load_iris(return_X_y=True)
 
+    # The role of the regularization is to reduce overfitting by shrinking or to
+    # minimizing the measure of the weights (or parameters) of the other features
+    # in the model.
+    apply_regularization = False
+
     predictor = MulticlassLogisticRegressionDemo()
-    predictor.make_prediction(sample_data)
+    predictor.make_prediction(sample_data, use_ridge=apply_regularization)

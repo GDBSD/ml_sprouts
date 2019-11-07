@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Ridge
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
@@ -14,11 +14,12 @@ class LinearRegressionDemo:
     https://learning.oreilly.com/library/view/building-machine-learning/9781484244708/html/463852_1_En_19_Chapter.xhtml
     """
 
-    def make_prediction(self, data, add_polynomial=False):
+    def make_prediction(self, data, add_polynomial=False, alpha=0):
         """Train a linear regression model and evaluate is quality.
 
         :param data: tuple - a tuple containing the data and the targets.
         :param add_polynomial: boolean - create higher-order polynomials from the dataset.
+        :param alpha float - controls the magnitude of the regularization parameter.
         :return:
         """
 
@@ -28,8 +29,8 @@ class LinearRegressionDemo:
         y_train = split_data['y_train']
         y_test = split_data['y_test']
 
-        # Setting normalize to true normalizes the dataset before fitting the model.
-        linear_reg = LinearRegression(normalize=True)
+        # Instantiate a linear regression model with regularization.
+        linear_reg = Ridge(alpha=alpha)
 
         # Fit the model on the training set.
         linear_reg.fit(X_train, y_train)
@@ -39,7 +40,7 @@ class LinearRegressionDemo:
 
         # Fit the model on the training set.
         linear_reg.fit(X_train, y_train)
-        LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=True)
+        # LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=True)
 
         # Evaluate the model performance using the root mean square error metric.
         if add_polynomial:
@@ -88,9 +89,16 @@ if __name__ == "__main__":
     # constrain the output to be a tuple containing only the data and the targets.
     sample_data = datasets.load_boston(return_X_y=True)
 
+    # The higher the value of alpha (i.e., the regularization parameter), the more restricted
+    # the coefficients (or weights) of the cost function. Hence, if the value of λ is high,
+    # the model can result in a learning bias (i.e., it underfits the dataset).
+    # However, if the value of alpha approaches zero, the regularization parameter has negligible
+    # effects on the model, hence resulting in overfitting the model.
+    ridge_alpha = 1
+
     model = LinearRegressionDemo()
 
-    model.make_prediction(sample_data, add_polynomial=False)
-    model.make_prediction(sample_data, add_polynomial=True)
+    model.make_prediction(sample_data, add_polynomial=False, alpha=ridge_alpha)
+    model.make_prediction(sample_data, add_polynomial=True, alpha=ridge_alpha)
 
 
