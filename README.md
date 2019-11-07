@@ -6,6 +6,7 @@
 3. [Comprehensive Overview of Traditional ML](#ml_foundation)
 4. [Visualizing Data Science Projects with Streamlit](#streamlit)
 5. [Getting More Sample Datasets](#tensorflow_ds)
+6. [Miscellaneous Interesting Exercises](#misc)
 
 <a name="overview"></a>
 ## Getting Started
@@ -26,9 +27,26 @@ merge into the '''develop``` branch. Delete your feature branch after the merge.
 Please comment you code and, if you're writing a Python script, add docstrings.
 
 I use Anaconda which will probably load a bunch of packages you won't need but I'm lazy. All the the packages
-are listed in requirements.txt. Before installing
+are listed in requirements.txt. If you find you are missing a package that's essential to running your code
+please add it to requirements.txt. I strongly recommend you create a virtual environment for any project you're
+working on, even this one. My virtual environment (so I don't forget) is ```ml```
 
-so I'm keeping the requirements.txt file
-a minimum. If you find you are missing a package that's essential to running your code please add
-it to requirements.txt. I strongly recommend you create a virtual environment for any project you're
-working on, even this one.
+<a name="charting"></a>
+## Charting Basics
+
+<a name="ml_foundation"></a>
+## Comprehensive Overview of Traditional ML
+[Building Machine Learning and Deep Learning Models on Google Cloud Platform](https://learning.oreilly.com/library/view/building-machine-learning/9781484244708/html/Part_3.xhtml)
+
+<a name="streamlit"></a>
+## Visualizing Data Science Projects with Streamlit
+[Seaborn documentation](https://seaborn.pydata.org/tutorial.html)
+
+<a name="tensorflow_ds"></a>
+## Getting More Sample Datasets
+
+<a name="misc"></a>
+## Miscellaneous Interesting Exercises
+
+### Evolution of a salesman: A complete genetic algorithm tutorial for Python
+From the [Medium blog post](https://towardsdatascience.com/evolution-of-a-salesman-a-complete-genetic-algorithm-tutorial-for-python-6fe5d2b3ca35) of the same name.
