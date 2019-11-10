@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from sklearn.linear_model import Ridge
-from sklearn import datasets
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error
-from sklearn.preprocessing import PolynomialFeatures
 from math import sqrt
+
+from sklearn import datasets
+from sklearn.linear_model import Ridge
+from sklearn.metrics import mean_squared_error
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import PolynomialFeatures
+
+# Make the models deterministic
+RANDOM_SEED = 42
 
 
 class LinearRegressionDemo:
@@ -30,7 +34,7 @@ class LinearRegressionDemo:
         y_test = split_data['y_test']
 
         # Instantiate a linear regression model with regularization.
-        linear_reg = Ridge(alpha=alpha)
+        linear_reg = Ridge(alpha=alpha, random_state=RANDOM_SEED)
 
         # Fit the model on the training set.
         linear_reg.fit(X_train, y_train)
@@ -84,7 +88,6 @@ class LinearRegressionDemo:
 
 
 if __name__ == "__main__":
-
     # Get some sample data from sklearn datasets. Setting return_X_y to True will
     # constrain the output to be a tuple containing only the data and the targets.
     sample_data = datasets.load_boston(return_X_y=True)
@@ -100,5 +103,3 @@ if __name__ == "__main__":
 
     model.make_prediction(sample_data, add_polynomial=False, alpha=ridge_alpha)
     model.make_prediction(sample_data, add_polynomial=True, alpha=ridge_alpha)
-
-
