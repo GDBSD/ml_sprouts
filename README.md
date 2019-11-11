@@ -14,10 +14,10 @@
 ML Sprouts is intended to provide machine learning "sprouts", i.e. a project you can use to select
 "spouts" to transplant into your ML "garden" to "grow" a new project. Its secondary objective is to
 provide a comprehensive survey of traditional machine learning methods, new deep learning tools, and
-a collection of mostly toy examples using small datasets to speed things up.
+a collection of mostly toy examples using small datasets to speed things up examples and Jupyter notebooks.
 
 Most of survey of traditional machine learning methods is extracted from the book _"Building Machine Learning
-and Deep Learning Models on Google Cloud Platform"_. Note that, in general training deep learning models works
+and Deep Learning Models on Google Cloud Platform"_. Note that, in general, training deep learning models works
 best on a GPU instance. There are multiple alternatives for setting up a remote GPU. Some are free, some you
 will have to pay for, usually by the minute. Prices on services like [Paperspace](https://www.paperspace.com/)
 are quite reasonable.
